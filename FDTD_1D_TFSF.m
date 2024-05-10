@@ -22,6 +22,8 @@ min_x = 0;%meters
 max_x = 3*lambda0;%meters
 
 
+testing
+
 x = (min_x:dx:max_x)';
 X = x;
 
