@@ -29,7 +29,7 @@ mid_x = round(length(x)/2);
 dt = dx*S/c;
 
 % make the material properties over space
-eps = eps0.*ones(size(X));
+epsilon = eps0.*ones(size(X));
 mu = mu0.*ones(size(X));
 sigma = zeros(size(X));
 sigma_star = zeros(size(X));
@@ -39,8 +39,8 @@ sigma(round(length(x)/2)) = 1;
 
 
 % calculate C and D parameters from Taflove Ch. 3
-Ca = (1-sigma.*dt./2./eps)./(1+sigma.*dt./2./eps);
-Cb = (dt./eps./dx)./(1+sigma.*dt./2./eps);
+Ca = (1-sigma.*dt./2./epsilon)./(1+sigma.*dt./2./epsilon);
+Cb = (dt./epsilon./dx)./(1+sigma.*dt./2./epsilon);
 Da = (1-sigma_star.*dt./2./mu)./(1+sigma_star.*dt./2./mu);
 Db = (dt./mu./dx)./(1+sigma_star.*dt./2./mu);
 
