@@ -1,7 +1,7 @@
 % A 1-D finite-difference time-domain method
 % simulation for electromagnetic wave propagation
 
-clear;
+clear; %test
 
 %Supply some constants
 eps0 = 8.854e-12;
@@ -15,7 +15,7 @@ f = 2e9; %Hz
 w = 2*pi*f;
 lambda0 = c/f; %meters
 % number of grid cells per wavelength
-N_lambda = 100;
+N_lambda = 1000;
 dx = lambda0/N_lambda; %meters
 
 %make the simulation space
@@ -68,7 +68,7 @@ end
 
 % make the time-array
 min_t = 0;
-max_t = 500*dt;
+max_t = 5000*dt;
 t = min_t:dt:max_t-dt;
 Ez_save = zeros(size(t));
 
@@ -142,7 +142,7 @@ function source_inc = source(t, t_0, p, x, x_0, c, k, w)
 
     %sine waveform
     my_unit_step = ((t - t_0 - k*(x - x_0)/w) > 0);
-    source_inc = 1*my_unit_step.*sin(w*(t - t_0) - k*(x - x_0));
+    source_inc = 1*my_unit_step;%.*sin(w*(t - t_0) - k*(x - x_0));
  
     %pulse waveform
     % source_inc = 1*exp(-((t - t_0 - (x-x_0)/c)/p).^2);
